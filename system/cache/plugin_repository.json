@@ -1,0 +1,168 @@
+{
+	"plugins": [
+		{
+			"id": "plugin-router-monitor",
+			"name": "Mikrotik Monitoring",
+			"description": "This plugin is created to monitor Mikrotik Router from PHPNuxBill and its features include: Router System Information, Interface Monitoring, Online Hotspot Users, Online PPPoE Users. e.t.c ",
+			"author": "Focuslinkstech",
+			"url": "https://github.com/Focuslinkstech/phpnuxbill-router-monitor-plugin",
+			"github": "https://github.com/hotspotbilling/plugin-router-monitor",
+			"last_update": "2023-11-12"
+		},
+		{
+			"id": "phpnuxbill-plugin-mikrotik-import",
+			"name": "Mikrotik Import",
+			"description": "Import existing Mikrotik Hotspot Package and User to PHPNuxBill. This script will import Users and Profiles, but will not add active packages to user.",
+			"author": "ibnux",
+			"url": "https://github.com/hotspotbilling/phpnuxbill-plugin-mikrotik-import",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-plugin-mikrotik-import",
+			"last_update": "2022-12-14"
+		},
+		{
+			"id": "Plugin-Tripay-View-Payment",
+			"name": "Tripay View Payment",
+			"description": "Dengan Plugin ini, Pembeli tidak akan diarahkan ke Web Tripay, instruksi pembayaran akan langsung ditampilkan.",
+			"author": "ibnux",
+			"url": "https://github.com/hotspotbilling/Plugin-Tripay-View-Payment",
+			"github": "https://github.com/hotspotbilling/Plugin-Tripay-View-Payment",
+			"last_update": "2023-09-27"
+		},
+		{
+			"id": "plugin-test-port",
+			"name": "Port Tester",
+			"description": "Check if your server block some port.",
+			"author": "ibnux",
+			"url": "https://github.com/hotspotbilling/plugin-test-port",
+			"github": "https://github.com/hotspotbilling/plugin-test-port",
+			"last_update": "2023-08-23"
+		},
+		{
+			"id": "Plugin-Radius-Client-Tester",
+			"name": "Radius Client Tester",
+			"description": "For testing Radius Server",
+			"author": "Focuslinkstech",
+			"url": "https://github.com/Focuslinkstech/Radius-Client-Tester",
+			"github": "https://github.com/hotspotbilling/Plugin-Radius-Client-Tester",
+			"last_update": "2023-10-17"
+		},
+		{
+			"id": "plugin-clear-cache",
+			"name": "Clear Compiled Cache",
+			"description": "Clear compiled cache files",
+			"author": "Focuslinkstech",
+			"url": "https://github.com/Focuslinkstech/phpnuxbill-clear-cache",
+			"github": "https://github.com/hotspotbilling/plugin-clear-cache",
+			"last_update": "2023-10-25"
+		},
+		{
+			"id": "sytem-information-plugin",
+			"name": "System Information",
+			"description": "The plugin is used to monitor system or server performance, check running services",
+			"author": "Focuslinkstech",
+			"url": "https://github.com/Focuslinkstech/phpnuxbill-sytem-information-plugin",
+			"github": "https://github.com/hotspotbilling/sytem-information-plugin",
+			"last_update": "2023-11-3"
+		},
+		{
+			"id": "database-backup-and-restore-plugin",
+			"name": "Extended Database Backup and Restore",
+			"description": "This Plugin is used to create database backup, restore, and download, but it is still in development, it has a lot of bugs and needs to be fixed, you can pull a request if errors or bugs, and it will be maintained from time to time",
+			"author": "Focuslinkstech",
+			"url": "https://github.com/Focuslinkstech/phpnuxbill-database-backup-and-restore-plugin",
+			"github": "https://github.com/hotspotbilling/database-backup-and-restore-plugin",
+			"last_update": "2023-11-3"
+		},
+		{
+			"id": "phpnuxbill-radius-online-users",
+			"name": "Radius online user viewer",
+			"description": "To see whos online, and can disconect the user",
+			"author": "Gerandonks",
+			"url": "https://github.com/gerandonk/phpnuxbill-radius-online-users",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-radius-online-users",
+			"last_update": "2024-02-08"
+		}
+	],
+	"payment_gateway": [
+		{
+			"id": "phpnuxbill-paypal",
+			"name": "Paypal",
+			"description": "Paypal Gateway, Country supported by Paypal",
+			"author": "ibnux",
+			"url": "https://paypal.com",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-paypal",
+			"last_update": "2023-03-12"
+		},
+		{
+			"id": "phpnuxbill-duitku",
+			"name": "Duitku *Rekomendasi*",
+			"description": "Duitku Direkomendasikan untuk pengguna di Indonesia, klik Website untuk melakukan pendaftaran",
+			"author": "ibnux",
+			"url": "https://hs.aspireapp.com/id/phpnuxbill-aspire",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-duitku",
+			"last_update": "2023-03-12"
+		},
+		{
+			"id": "phpnuxbill-tripay",
+			"name": "Tripay",
+			"description": "Tripay only in Indonesia",
+			"author": "ibnux",
+			"url": "https://tripay.co.id/?ref=TP19304",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-tripay",
+			"last_update": "2023-09-27"
+		},
+		{
+			"id": "phpnuxbill-tripay-proxy",
+			"name": "Tripay Proxy",
+			"description": "Tripay only in Indonesia. Payment Gateway ini untuk pengguna NuxBill yang tidak punya IP static",
+			"author": "ibnux",
+			"url": "https://tripay.co.id/?ref=TP19304",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-tripay-proxy",
+			"last_update": "2023-09-27"
+		},
+		{
+			"id": "phpnuxbill-xendit",
+			"name": "Xendit",
+			"description": "xendit only in Indonesia, Phillipine untested",
+			"author": "ibnux",
+			"url": "https://xendit.com",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-xendit",
+			"last_update": "2023-03-12"
+		},
+		{
+			"id": "umspay-payment-gateway",
+			"name": "umspay",
+			"description": "UMS Pay is Payment Gateway for Kenya",
+			"author": "Alvin Kiveu",
+			"url": "https://portal.umeskiasoftwares.com/login",
+			"github": "https://github.com/hotspotbilling/umspay-payment-gateway",
+			"last_update": "2023-1-12"
+		},
+		{
+			"id": "phpnuxbill-bkash",
+			"name": "bKash",
+			"description": "Payment Gateway for Bangladesh",
+			"author": "ibnux",
+			"url": "https://www.bkash.com",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-bkash",
+			"last_update": "2023-7-7"
+		},
+		{
+			"id": "phpnuxbill-flutterwave-payment-gateway",
+			"name": "Flutterwave",
+			"description": "Payment Gateway FlutterWave",
+			"author": "Focuslinkstech",
+			"url": "https://github.com/Focuslinkstech/phpnuxbill-flutterwave-payment-gateway",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-flutterwave-payment-gateway",
+			"last_update": "2023-7-28"
+		},
+		{
+			"id": "phpnuxbill-paystack-payment-gateway",
+			"name": "Paystack",
+			"description": "Payment Gateway Paystack.com",
+			"author": "Focuslinkstech",
+			"url": "https://github.com/Focuslinkstech/phpnuxbill-paystack-payment-gateway",
+			"github": "https://github.com/hotspotbilling/phpnuxbill-paystack-payment-gateway",
+			"last_update": "2023-7-28"
+		}
+	]
+}
