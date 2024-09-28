@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> NET-MTAANI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-900 font-inter">
+    <!-- Main Content -->
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-4">
+        <div class="max-h-34 relative mx-auto mt-4 flex max-w-lg flex-1 shrink-0 items-center justify-center overflow-hidden shadow-lg rounded-lg bg-green-100">
+            <!-- overlay - start -->
+            <!-- <div class="absolute inset-0  mix-blend-multiply"></div> -->
+            <!-- overlay - end -->
+            <!-- text start -->
+            <div class="relative flex flex-col items-center p-4 sm:max-w-xl">
+                <p class="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-xl md:mb-2 "> NET-MTAANI HOTSPOT LOGIN </p>
+                <ol class="text-base text-left text-gray-800 mb-1 list-decimal pl-6">
+                    <li>Click on your preferred package</li>
+                    <li>Enter Mpesa No.</li>
+                    <li>Enter pin</li>
+                    <li>Wait to be connected</li>
+                </ol>
+                <p class="mb-4 text-center text-lg font-medium text-gray-700 sm:text-1xl md:mb-1  md:text-xl"> For any enquiries contact : 0716376020</p>
+            </div>
+            <!-- text end -->
+        </div>
+    </div>
+    <div class="py-2 sm:py-4 lg:py-4">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-4">
+            <div class="mx-auto max-w-lg">
+                <div class="flex flex-col gap-4">
+                    <button type="button" class="flex items-center justify-center gap-2 rounded-lg bg-green-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-green-300 transition duration-100 hover:bg-green-600 focus-visible:ring active:bg-green-700 md:text-base" onclick="redeemVoucher()">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                        Click here to Redeem Voucher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-2 sm:py-4 lg:py-6">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <div class="mx-auto max-w-lg grid grid-cols-3 sm:grid-cols-3 gap-1 p-1 mb-4" id="cards-container">
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 mb-2">
+        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg">
+        <div class="p-3">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-3 text-center">Enter Mpesa code to reconnect</h3>
+            <div class="mb-6">
+                <label for="mpesaCodeInput" class="block text-gray-700 text-sm font-bold mb-2">Mpesa Code:</label>
+                <input type="text" id="mpesaCodeInput" name="mpesa_code" placeholder="Enter Mpesa Code" class="w-full rounded-lg border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring">
+                <button id="reconnectBtn" class="w-full mt-3 rounded-lg bg-blue-500 px-4 py-2 text-white font-semibold hover:bg-blue-600 transition duration-100">Reconnect</button>
+            </div>
+        </div>
+        <div class="p-1">
+                <div class="w-full p-3">
+                    <div class="text-center">
+                        <h3 class="text-2xl text-gray-900">Already Have an Active Package?</h3>
+                    </div>
+                    <form id="loginForm" class="form" name="login" action="$(link-login-only)" method="post" $(if chap-id)onSubmit="return doLogin()" $(endif)>
+                        <input type="hidden" name="dst" value="$(link-orig)" />
+                        <input type="hidden" name="popup" value="true" />
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Clik Connect</label>
+                            <div>
+                                <input id="usernameInput" name="username" type="text" value="" placeholder="Enter account number" class="w-full rounded-lg border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
+                                <button id="submitBtn" class="w-full mt-3 flex items-center justify-center gap-2 rounded-lg bg-green-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-blue-300 transition duration-100 hover:bg-blue-600 focus-visible:ring active:bg-blue-700 md:text-base" type="button" onclick="submitLogin()">
+                                    Connect
+                                </button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="password" value="1234">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div class="mx-auto mb-4 max-w-lg">
+            <div class="border-t py-4">
+                <p class="text-xs text-gray-500 text-center">&copy;  2024. Poered by PamojaISP</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+function fetchData() {
+    let domain = 'https://netmtaani.netguru.co.ke/';
+    let siteUrl = domain + "/index.php?_route=plugin/hotspot_plan";
+    let request = new XMLHttpRequest();
+    const routerName = encodeURIComponent("NETMTAANI-MAIN");
+    const dataparams = `routername=${routerName}`;
+    request.open("POST", siteUrl, true);
+    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    request.onload = () => {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                let fetchedData = JSON.parse(request.responseText);
+                populateCards(fetchedData);
+            } else {
+                console.log(`Error ${request.status}: ${request.statusText}`);
+            }
+        }
+    };
+    request.onerror = () => {
+        console.error("Network error");
+    };
+    request.send(dataparams);
+}
+function populateCards(data) {
+  var cardsContainer = document.getElementById('cards-container');
+  cardsContainer.innerHTML = ''; // Clear existing content
+  data.data.forEach(router => {
+    router.plans_hotspot.forEach(item => {
+      var cardDiv = document.createElement('div');
+      cardDiv.className = 'bg-white border border-black rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg flex flex-col items-center justify-between cursor-pointer';
+      cardDiv.onclick = function() { handlePhoneNumberSubmission(item.planId, item.routerId); };
+      cardDiv.innerHTML = `
+        <div class="bg-green-500 text-white w-full py-1">
+          <h2 class="text-xs font-medium uppercase text-center" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            ${item.planname}
+          </h2>
+        </div>
+        <div class="px-2 py-1 flex-grow">
+          <p class="text-lg font-bold text-green-600 mb-1">
+            <span class="text-sm font-medium text-black">${item.currency}</span>
+            ${item.price}
+          </p>
+          <p class="text-xs text-black mb-1">
+            Valid for ${item.validity} ${item.timelimit}
+          </p>
+          <hr class="border-black mb-1">
+        </div>
+      `;
+      cardsContainer.appendChild(cardDiv);
+    });
+  });
+}
+fetchData();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function formatPhoneNumber(phoneNumber) {
+        if (phoneNumber.startsWith('+')) {
+            phoneNumber = phoneNumber.substring(1);
+        }
+        if (phoneNumber.startsWith('0')) {
+            phoneNumber = '254' + phoneNumber.substring(1);
+        }
+        if (phoneNumber.match(/^(7|1)/)) {
+            phoneNumber = '254' + phoneNumber;
+        }
+        return phoneNumber;
+    }
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function generateAccountId() {
+        return 'ACC' + Math.floor(10000 + Math.random() * 90000); // Generate a random number between 10000 and 99999
+    }
+
+var loginTimeout; // Variable to store the timeout ID
+function handlePhoneNumberSubmission(planId, routerId, price) {
+    var msg = "You are about to pay Kes: . Enter phonenumber below and click pay now to initialize payment";
+    const regexp = /\${([^{}]+)}/g;
+    let result = msg.replace(regexp, function(ignore, key) {
+        return eval(key);
+    });
+    swal.fire({
+        title: 'Enter Your Mpesa Number',
+        input: 'number',
+        inputAttributes: {
+            required: 'true'
+        },
+        inputValidator: function(value) {
+            if (value === '') {
+                return 'You need to write your phonenumber!';
+            }
+        },
+        text: result,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Pay Now',
+        showLoaderOnConfirm: true,
+        preConfirm: (phoneNumber) => {
+            var formattedPhoneNumber = formatPhoneNumber(phoneNumber);
+            var accountId = getCookie('accountId');
+            if (!accountId) {
+                accountId = generateAccountId(); // Generate a new account ID
+                setCookie('accountId', accountId, 7); // Set account ID as a cookie
+            }
+            document.getElementById('usernameInput').value = accountId; // Use account ID as the new username
+            console.log("Phone number for autofill:", formattedPhoneNumber);
+
+            return fetch('https://netmtaani.netguru.co.ke/index.php?_route=plugin/CreateHotspotuser&type=grant', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({phone_number: formattedPhoneNumber, plan_id: planId, router_id: routerId, account_id: accountId}),
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'error') throw new Error(data.message);
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Processing..',
+                    html: `A payment request has been sent to your phone. Please wait while we process your payment.`,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        checkPaymentStatus(formattedPhoneNumber);
+                    }
+                });
+                return formattedPhoneNumber;
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: error.message,
+                });
+            });
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+    });
+}
+
+function checkPaymentStatus(phoneNumber) {
+    let checkInterval = setInterval(() => {
+        $.ajax({
+            url: 'https://netmtaani.netguru.co.ke/index.php?_route=plugin/CreateHotspotuser&type=verify',
+            method: 'POST',
+            data: JSON.stringify({account_id: document.getElementById('usernameInput').value}),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(data) {
+                console.log('Raw Response:', data); // Debugging
+                if (data.Resultcode === '3') { // Success
+                    clearInterval(checkInterval);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Payment Successful',
+                        text: data.Message,
+                        showConfirmButton: false
+                    });
+                    if (loginTimeout) {
+                        clearTimeout(loginTimeout);
+                    }
+                    loginTimeout = setTimeout(function() {
+                        document.getElementById('loginForm').submit();
+                    }, 2000);
+                } else if (data.Resultcode === '2') { // Error
+                    clearInterval(checkInterval);
+                    let iconType = data.Status === 'danger' ? 'error' : data.Status;
+                    Swal.fire({
+                        icon: iconType,
+                        title: 'Payment Issue',
+                        text: data.Message,
+                    });
+                } else if (data.Resultcode === '1') { // Primary
+                    // Continue checking
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.log('Error: ' + errorThrown);
+            }
+        });
+    }, 2000);
+
+    setTimeout(() => {
+        clearInterval(checkInterval);
+        Swal.fire({
+            icon: 'warning',
+            title: 'Timeout',
+            text: 'Payment verification timed out. Please try again.',
+        });
+    }, 600000); // Stop checking after 60 seconds
+}
+</script>
+<script>
+var loginTimeout; // Variable to store the timeout ID
+function redeemVoucher() {
+    Swal.fire({
+        title: 'Redeem Voucher',
+        input: 'text',
+        inputPlaceholder: 'Enter voucher code',
+        inputValidator: function(value) {
+            if (!value) {
+                return 'You need to enter a voucher code!';
+            }
+        },
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Redeem',
+        showLoaderOnConfirm: true,
+        preConfirm: (voucherCode) => {
+            var accountId = getCookie('accountId');
+            if (!accountId) {
+                accountId = generateAccountId();
+                setCookie('accountId', accountId, 7);
+            }
+            return fetch('https://netmtaani.netguru.co.ke/index.php?_route=plugin/CreateHotspotuser&type=voucher', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({voucher_code: voucherCode, account_id: accountId}),
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'error') throw new Error(data.message);
+                return data;
+            });
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Voucher Redeemed',
+                text: result.value.message,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                    var username = result.value.username;
+                    console.log('Received username from server:', username);
+                    var usernameInput = document.querySelector('input[name="username"]');
+                    if (usernameInput) {
+                        console.log('Found username input element.');
+                        usernameInput.value = username;
+                        loginTimeout = setTimeout(function() {
+                            var loginForm = document.getElementById('loginForm');
+                            if (loginForm) {
+                                loginForm.submit();
+                            } else {
+                                console.error('Login form not found.');
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: 'Login form not found. Please try again.',
+                                });
+                            }
+                        }, 2000);
+                    } else {
+                        console.error('Username input element not found.');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Username input not found. Please try again.',
+                        });
+                    }
+                }
+            });
+        }
+    }).catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.message,
+        });
+    });
+}
+</script>
+<script>
+var loginTimeout; // Variable to store the timeout ID
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('reconnectBtn').addEventListener('click', function() {
+        var mpesaCode = document.getElementById('mpesaCodeInput').value;
+        fetch('https://netmtaani.netguru.co.ke/index.php?_route=plugin/CreateHotspotuser&type=reconnect', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({mpesa_code: mpesaCode}),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.Status === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Reconnection Successful',
+                    text: data.Message,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        var username = data.username; // Replace with actual JSON field name
+                        console.log('Received username from server:', username);
+                        var usernameInput = document.querySelector('input[name="username"]');
+                        if (usernameInput) {
+                            console.log('Found username input element.');
+                            usernameInput.value = username;
+                            loginTimeout = setTimeout(function() {
+                                var loginForm = document.getElementById('loginForm');
+                                if (loginForm) {
+                                    loginForm.submit();
+                                } else {
+                                    console.error('Login form not found.');
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error',
+                                        text: 'Login form not found. Please try again.',
+                                    });
+                                }
+                            }, 2000);
+                        } else {
+                            console.error('Username input element not found.');
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Username input not found. Please try again.',
+                            });
+                        }
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Reconnection Failed',
+                    text: data.Message,
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Failed to reconnect. Please try again later.',
+            });
+        });
+    });
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+     // Ensure the button is correctly targeted by its ID.
+     var submitBtn = document.getElementById('submitBtn');
+     
+     // Add a click event listener to the "Login Now" button.
+     submitBtn.addEventListener('click', function(event) {
+         event.preventDefault(); // Prevent the default button action.
+         
+         // Optional: Log to console for debugging purposes.
+         console.log("Login Now button clicked.");
+ 
+         // Direct form submission, bypassing the doLogin function for simplicity.
+         var form = document.getElementById('loginForm');
+         form.submit(); // Submit the form directly.
+     });
+});
+</script>
+</html>
